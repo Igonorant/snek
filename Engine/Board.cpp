@@ -5,7 +5,31 @@
 Board::Board( Graphics& gfx )
 	:
 	gfx( gfx )
-{}
+{
+	contents = new CellContents[width * height];
+	for (int i = 0; i < width * height; i++) {
+		contents[i] = CellContents::Empty;
+	}
+}
+
+Board::Board(Graphics& gfx, Settings& settings)
+	:
+	gfx(gfx)
+{
+	dimension = settings.tileSize;
+	width = settings.width;
+	height = settings.height;
+
+	contents = new CellContents[width * height];
+	for (int i = 0; i < width * height; i++) {
+		contents[i] = CellContents::Empty;
+	}
+}
+
+Board::~Board()
+{
+	delete[] contents;
+}
 
 void Board::DrawCell( const Location & loc,Color c )
 {

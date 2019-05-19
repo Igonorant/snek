@@ -26,7 +26,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	brd( gfx ),
+	brd( gfx, settings ),
 	rng( std::random_device()() ),
 	snek( {2,2} )
 {
