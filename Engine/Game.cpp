@@ -30,6 +30,11 @@ Game::Game( MainWindow& wnd )
 	rng( std::random_device()() ),
 	snek( {2,2} )
 {
+
+	snekSpeedupFactor = settings.speedupRate;
+	nPoison = settings.poisonAmount;
+	nFood = settings.foodAmount;
+
 	for( int i = 0; i < nPoison; i++ )
 	{
 		brd.SpawnContents( rng,snek,Board::CellContents::Poison );
